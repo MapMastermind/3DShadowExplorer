@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>МАРШРУТЫЫЫЫ</title>
+
+  <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+  <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css" rel="stylesheet">
+  <!-- <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script> -->
+   <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <link rel="stylesheet prefetch" href="https://cdn.rawgit.com/mfd/e7842774e037edf15919037594a79b2b/raw/665bdfc532094318449f1010323c84013d5af953/graphik.css">
+  <link rel="stylesheet" href="styles.css">
+   
+  <style>
+    html, body {
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #map {
+  height: 100%;
+  width: 100%;
+}
+
+#time {
+  position: absolute;
+  width: 90%;
+  top: 10px;
+  left: 10px;
+}
+
+ 
+  </style>
+
+</head>
+<body>
+  
+  <div id="map"></div>
+
+
+  <div id="timeContainer">
+    
+    <input id="time" type="range" min="0" max="86400" />
+
+    <div>
+        <label for="dateInput">Дата:</label>
+        <input id="dateInput" type="date" />
+    </div>
+    
+    <div id="dateTimeDisplay"></div>
+</div>
+
+
+
+
+
+
+  <div id="tabs-container" class="tab-container">
+    <button id="burger-button" class="burger-button">&#9776;</button>
+    <button id="about-tab" class="tab-button">О проекте</button>
+    <div id="about-content" class="tab-content">
+      <h2>О проекте</h2>
+      <p>берет свое начало в далеком 2021 году...</p>
+    </div>
+  
+    <button id="methodology-tab" class="tab-button">Методология</button>
+    <div id="methodology-content" class="tab-content">
+      <h2>Методология</h2>
+      <p>Тут мы гугл панорамы открыли деревья распознали классифицировали модель обучили 
+        предобратоли данные о зданиях собрали все загрузили визулизацию с тенями рассчитали
+        гис приложение намутили
+        идея: https://gist.github.com/andrewharvey/9490afae78301c047adddfb06523f6f1
+        библиотека на js https://github.com/mourner/suncalc
+
+
+      </p>
+    </div>
+  
+    <button id="support-tab" class="tab-button">Поддержать проект</button>
+    <div id="support-content" class="tab-content">
+      <h2>Поддержать проект</h2>
+      <p>Дайте денег или тут можно про данные рассказать, ссылки дать</p>
+    </div>
+  </div>
+
+  
+  <script src='https://unpkg.com/suncalc@1.8.0/suncalc.js'></script>
+  <script src="index.js"></script>
+</body>
+</html>
