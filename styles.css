@@ -21,14 +21,31 @@
   display: flex;
   flex-wrap: wrap; /* Позволяет кнопкам переноситься на новую строку при необходимости */
 }
-
-@media screen and (max-width: 600px) {
+/* Стили для мобильных устройств */
+@media only screen and (max-width: 600px) {
   .tab-container {
-    min-width: 90%; 
-    left: 5px; 
-    top: 5px; 
+    min-width: 30%;
+    min-height: 20px;
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    z-index: 1;
+    background-color: #ffffff;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
+    font-family: 'Graphik', sans-serif;
+    display: flex;
+    flex-direction: column; 
+  }
+
+  .tab-button {
+    margin-bottom: 10px; /* Отступ между кнопками */
   }
 }
+
+
 
 .tab-button {
   background-color: transparent; /* Установим прозрачный цвет фона */
