@@ -4,14 +4,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>МАРШРУТЫЫЫЫ</title>
+  <title>🌳ПОТЕНЯМ</title>
 
-  <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+  <!-- <link href="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.css" rel="stylesheet">
+  <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script> -->
   <link href="https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.css" rel="stylesheet">
-  <!-- <script src="https://api.mapbox.com/mapbox-gl-js/v3.2.0/mapbox-gl.js"></script> -->
+  
    <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.53.1/mapbox-gl.js'></script>
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-  <link rel="stylesheet prefetch" href="https://cdn.rawgit.com/mfd/e7842774e037edf15919037594a79b2b/raw/665bdfc532094318449f1010323c84013d5af953/graphik.css">
+  <!-- <link rel="stylesheet prefetch" href="https://cdn.rawgit.com/mfd/e7842774e037edf15919037594a79b2b/raw/665bdfc532094318449f1010323c84013d5af953/graphik.css"> -->
   <link rel="stylesheet" href="styles.css">
    
   <style>
@@ -34,16 +35,36 @@ html, body, #map {
 
  
   </style>
+  
 
 </head>
 <body>
-  
+  <script src="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.2.0/mapbox-gl-directions.js"></script>
+  <link rel="stylesheet" href="https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v4.2.0/mapbox-gl-directions.css" type="text/css">
+  <script src="https://unpkg.com/three@0.126.0/build/three.min.js"></script>
+  <script src="https://unpkg.com/three@0.126.0/examples/js/loaders/GLTFLoader.js"></script>
   <div id="map"></div>
 
+  <div id="instructions"></div>
+  <div id="adress">
+    <div>
+      <label for="start">Точка А:</label>
+      <input type="text" id="start" placeholder="Введите адрес">
+      <button id="clearStart">&#10006;</button> <!-- Кнопка очистки начальной точки -->
+  </div>
+  
+  <div>
+      <label for="end">Точка Б:</label>
+      <input type="text" id="end" placeholder="Введите адрес">
+      <button id="clearEnd">&#10006;</button> <!-- Кнопка очистки конечной точки -->
+  </div>
+  
+  </div>
 
+  
   <div id="timeContainer">
     
-    <input id="time" type="range" min="0" max="86400" />
+    <input id="time" type="range" min="0" max="86400" /><br>
 
     <div>
         <label for="dateInput">Дата:</label>
@@ -63,7 +84,34 @@ html, body, #map {
     <button id="about-tab" class="tab-button">О проекте</button>
     <div id="about-content" class="tab-content">
       <h2>О проекте</h2>
-      <p>берет свое начало в далеком 2021 году...</p>
+      <p>Проект берет свое начало в 2021 году в Казани, где авторы столнулись с проблемой недостаточной 
+        озеленности центрального (Вахитовского) района Казани. 
+
+        <br><br>Вдохновением для создания веб-приложения послужили аналогичные проекты. 
+        <br><a href=" https://cool.bcnregional.com/" 
+        target="_blank">Cool walks</a> — маршруты по теням для центра Барселоны, 
+        созданные с применением лидарной съемки.
+
+        <br><a href="https://exploretrees.sg/" 
+        target="_blank">Explore Trees in Singapore</a> — проект реализованный совместно с департаментом
+        Национальных парков Сингапура, где визуализируются более 80% деревьев Сингапура.
+
+        <br>А также статья Novack, T., Wang, Z., & Zipf 
+        <a href="https://www.mdpi.com/1424-8220/18/11/3794" 
+        target="_blank">"A system for generating 
+        customized pleasant pedestrian routes based on OpenStreetMap data"</a>, где концептуализируется
+        термин "индивидуального пешеходного маршрута" и разрабатыватеся приложение,
+        генерирующее такие маршруты. 
+        
+
+
+        <br><br>MVP проекта представло в рамках курса "Урбантех" в марте 2024 года. 
+        Авторы приложения: <a href="mailto:tazharyonova@edu.hse.ru">Жарёнова Татьяна</a> и
+        <a href="mailto:svnesterov_1@edu.hse.ru">Нестеров Степан</a>.
+        
+        
+
+      </p>
     </div>
   
     <button id="methodology-tab" class="tab-button">Методология</button>
@@ -71,10 +119,25 @@ html, body, #map {
       <h2>Методология</h2>
       <p>Тут мы гугл панорамы открыли деревья распознали классифицировали модель обучили 
         предобратоли данные о зданиях собрали все загрузили визулизацию с тенями рассчитали
-        гис приложение намутили
-        идея: https://gist.github.com/andrewharvey/9490afae78301c047adddfb06523f6f1
-        библиотека на js https://github.com/mourner/suncalc
+        гис приложение намутили.
 
+
+        <br><br>Для расчета площади и конфигурации теней от зданий и деревьев была адаптирована 
+        и скорректирована методика Volodymyr Agafonkin <a href="https://github.com/mourner/suncalc" 
+        target="_blank">suncalc</a> и Ted Piotrowski <a href=https://gist.github.com/ted-piotrowski/420a31bf3c157664fdda14bf45692785" 
+        target="_blank">shademap</a>.         
+        
+        Алгоритм был преобразован для более новой версии mapbox.gl. 
+        Также было сделано допущение, что тень отбрасывается только кроной дерева, без расчета тени для 
+        ствола дерева. Это позволило избежать излишней перегрузки браузера из-за содаваемых данных.
+
+        <br><br>На момент выпуска MVP реализовано создание кротчайших маршрутов с использованием 
+        API Mapbox. В следующем реализе фактор озеленности, затенности и шумового загрязнения
+        будет учитываться при создании индивидуальных маршрутов. 
+
+     
+
+       
 
       </p>
     </div>
@@ -82,12 +145,14 @@ html, body, #map {
     <button id="support-tab" class="tab-button">Поддержать проект</button>
     <div id="support-content" class="tab-content">
       <h2>Поддержать проект</h2>
-      <p>Дайте денег или тут можно про данные рассказать, ссылки дать</p>
+      <p>5536 9140 0067 3156 на хостинг</p>
     </div>
   </div>
 
   
   <script src='https://unpkg.com/suncalc@1.8.0/suncalc.js'></script>
   <script src="index.js"></script>
+  <script src="navigation.js"></script>
+  <script src="sidebar.js"></script>
 </body>
 </html>
