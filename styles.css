@@ -1,3 +1,8 @@
+/* Общий селектор для всего документа */
+* {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
 .map {
   position: absolute;
   top: 0;
@@ -5,8 +10,9 @@
   width: 100%;
 }
 
+
 .tab-container {
-  min-width: 100px; 
+  min-width: 30%; 
   min-height: 20px; 
   position: absolute;
   top: 15px;
@@ -17,25 +23,17 @@
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   font-size: 14px;
-  font-family: 'Graphik', sans-serif;
-  display: flex;
+    display: flex;
   flex-wrap: wrap; /* Позволяет кнопкам переноситься на новую строку при необходимости */
 }
 /* Стили для мобильных устройств */
-@media only screen and (max-width: 600px) {
-  .burger-button {
-  position: absolute;
-  top: 3px; /* Отступ сверху */
-  left: 1px; /* Отступ справа */
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 20px;
-  z-index: 2;
-  transition: right 0.5s ease; 
+@media screen and (max-width: 600px) {
+  .tab-container {
+    min-width: 90%; /* Изменяем минимальную ширину */
+    left: 5px; /* Перемещаем влево для более узкого экрана */
+    top: 5px; /* Перемещаем вверх для более узкого экрана */
+  }
 }
-}
-
 
 
 .tab-button {
@@ -91,7 +89,7 @@
 
 #timeContainer {
   position: absolute;
-  bottom: 10px; /* Изменено значение bottom */
+  bottom: 3%; /* Изменено значение bottom */
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
@@ -103,7 +101,7 @@
 
 #time {
   width: 200px;
-  margin-top: -20px; /* Новое значение для поднятия элемента выше */
+  margin-top: -1px;
     border-radius: 5px;
   background: #d3d3d3;
   outline: none;
@@ -122,5 +120,65 @@
   text-align: center;
 }
 
+/* #instructions {
+  position: absolute;
+  margin: 20px;
+  width: 25%;
+  top: 0;
+  right: 0;
+  bottom: 20%;
+  padding: 20px;
+  background-color: #fff;
+  overflow-y: scroll;
+  font-family: sans-serif;
+} */
 
 
+#instructions  {
+  max-width: 30%; 
+  /* min-height: 20px;  */
+  position: absolute;
+  bottom: 5%;
+  right: 1%;
+  z-index: 1;
+  background-color: #ffffff; /* Белый фон */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+    display: flex;
+  
+}
+
+.input-container {
+  margin-bottom: 10px;
+}
+
+.input-container input {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.input-container input:focus {
+  outline: none;
+  border-color: #3887be;
+}
+
+#adress  {
+  max-width: 30%; 
+  /* min-height: 20px;  */
+  position: absolute;
+  bottom: 20%;
+  right: 1%;
+  z-index: 1;
+  background-color: #ffffff; /* Белый фон */
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  font-size: 14px;
+    display: flex;
+  
+}
