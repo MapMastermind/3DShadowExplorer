@@ -9,7 +9,7 @@ const map = new mapboxgl.Map({
 
     center: [49.124793, 55.787952],
     maxBounds: [[49.087793, 55.767952], [49.151793, 55.803952]],
-    zoom: 14,
+    zoom: 16,
     minZoom: 13,
     pitch: 50,
     maxZoom: 20,
